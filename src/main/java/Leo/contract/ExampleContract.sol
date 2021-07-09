@@ -3,7 +3,9 @@ pragma solidity >= 0.4.21;
 contract ExampleContract{
     
     mapping (string => uint) balanceByName;
-    event setBalanceEvent (string, uint);
+    // event setBalanceEvent (string, uint);
+    // there will have error if variable have no name
+    event setBalanceEvent(string indexed name, uint indexed balance);
     
     function setBalance(string memory _name, uint _balance) public {
         balanceByName[_name] = _balance;
